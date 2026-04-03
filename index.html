@@ -18,6 +18,41 @@
             background-color: #f5f5f5;
         }
 
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 25px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .language-switcher:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .flag {
+            width: 20px;
+            height: 15px;
+            border-radius: 2px;
+            object-fit: cover;
+        }
+
+        .lang-text {
+            color: #667eea;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -32,6 +67,46 @@
             margin-bottom: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .language-switcher:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .flag {
+            width: 20px;
+            height: 15px;
+            border-radius: 2px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .lang-text {
+            color: white;
+            font-weight: 600;
         }
 
         h1 {
@@ -273,55 +348,59 @@
 <body>
     <div class="container">
         <header>
-            <h1>Forschung: Tech-Sekte & Deepfake-Technologie</h1>
-            <div class="subtitle">Analyse synthetisch operierter Social-Media-Konten seit 2019</div>
+            <h1 data-de="Forschung: Tech-Sekte & Deepfake-Technologie" data-en="Research: Tech Cult & Deepfake Technology">Forschung: Tech-Sekte & Deepfake-Technologie</h1>
+            <div class="subtitle" data-de="Analyse synthetisch operierter Social-Media-Konten seit 2019" data-en="Analysis of Synthetically Operated Social Media Accounts Since 2019">Analyse synthetisch operierter Social-Media-Konten seit 2019</div>
+            <button class="language-switcher" id="langSwitcher" onclick="toggleLanguage()">
+                <span id="flagContainer"></span>
+                <span class="lang-text" id="langText">ENGLISH</span>
+            </button>
         </header>
 
         <section class="research-info">
-            <h2>Forschungshintergrund</h2>
-            <p>Diese Forschungsarbeit untersucht eine mutmaßliche Tech-Sekte, die dem Reichsbürgertum und Weltuntergangsjüngertum zuzuordnen ist. Seit ca. 2020 zeigt diese Sekte die Fähigkeit, nahezu perfekte Deepfake-KI-Fotos und -Videos zu erstellen.</p>
+            <h2 data-de="Forschungshintergrund" data-en="Research Background">Forschungshintergrund</h2>
+            <p data-de="Diese Forschungsarbeit untersucht eine mutmaßliche Tech-Sekte, die dem Reichsbürgertum und Weltuntergangsjüngertum zuzuordnen ist. Seit ca. 2020 zeigt diese Sekte die Fähigkeit, nahezu perfekte Deepfake-KI-Fotos und -Videos zu erstellen." data-en="This research examines a suspected tech cult associated with sovereign citizen movements and doomsday cults. Since approximately 2020, this cult has demonstrated the ability to create nearly perfect deepfake AI photos and videos.">Diese Forschungsarbeit untersucht eine mutmaßliche Tech-Sekte, die dem Reichsbürgertum und Weltuntergangsjüngertum zuzuordnen ist. Seit ca. 2020 zeigt diese Sekte die Fähigkeit, nahezu perfekte Deepfake-KI-Fotos und -Videos zu erstellen.</p>
             
             <div class="evidence-note">
-                <strong>Wichtiger Hinweis:</strong> Die hier präsentierten Beweise deuten darauf hin, dass es sich bei den analysierten Konten um synthetisch operierte Profile handelt, die bereits seit 2019 aktiv sind.
+                <strong data-de="Wichtiger Hinweis:" data-en="Important Note:">Wichtiger Hinweis:</strong> <span data-de="Die hier präsentierten Beweise deuten darauf hin, dass es sich bei den analysierten Konten um synthetisch operierte Profile handelt, die bereits seit 2019 aktiv sind." data-en="The evidence presented here indicates that the analyzed accounts are synthetically operated profiles that have been active since 2019.">Die hier präsentierten Beweise deuten darauf hin, dass es sich bei den analysierten Konten um synthetisch operierte Profile handelt, die bereits seit 2019 aktiv sind.</span>
             </div>
 
-            <p>Als mögliche Unterstützer werden Elon Musk (Grok KI), OpenAI (ChatGPT) oder Anthropic (Claude AI) vermutet. Es gibt begründete Annahmen, dass sowohl Elon Musk als auch Sam Altman falsche Aussagen über den tatsächlichen Stand ihrer KI-Forschungen gemacht haben.</p>
+            <p data-de="Als mögliche Unterstützer werden Elon Musk (Grok KI), OpenAI (ChatGPT) oder Anthropic (Claude AI) vermutet. Es gibt begründete Annahmen, dass sowohl Elon Musk als auch Sam Altman falsche Aussagen über den tatsächlichen Stand ihrer KI-Forschungen gemacht haben." data-en="Possible supporters include Elon Musk (Grok AI), OpenAI (ChatGPT), or Anthropic (Claude AI). There are reasonable assumptions that both Elon Musk and Sam Altman have made false statements about the actual state of their AI research.">Als mögliche Unterstützer werden Elon Musk (Grok KI), OpenAI (ChatGPT) oder Anthropic (Claude AI) vermutet. Es gibt begründete Annahmen, dass sowohl Elon Musk als auch Sam Altman falsche Aussagen über den tatsächlichen Stand ihrer KI-Forschungen gemacht haben.</p>
 
-            <p>Berücksichtigt man übliche Produktentwicklungs- und Markteinführungsphasen, inklusive Alpha- und Beta-Tests, wäre eine solche technologische Reife erst 2-3 Jahre später beim Endkunden zu erwarten. Die hier dokumentierten Beweise deuten auf einen deutlich früheren technologischen Fortschritt hin.</p>
+            <p data-de="Berücksichtigt man übliche Produktentwicklungs- und Markteinführungsphasen, inklusive Alpha- und Beta-Tests, wäre eine solche technologische Reife erst 2-3 Jahre später beim Endkunden zu erwarten. Die hier dokumentierten Beweise deuten auf einen deutlich früheren technologischen Fortschritt hin." data-en="Considering typical product development and market introduction phases, including alpha and beta testing, such technological maturity would only be expected 2-3 years later for end customers. The evidence documented here points to significantly earlier technological progress.">Berücksichtigt man übliche Produktentwicklungs- und Markteinführungsphasen, inklusive Alpha- und Beta-Tests, wäre eine solche technologische Reife erst 2-3 Jahre später beim Endkunden zu erwarten. Die hier dokumentierten Beweise deuten auf einen deutlich früheren technologischen Fortschritt hin.</p>
         </section>
 
         <section class="timeline">
-            <h2>Zeitliche Einordnung der technologischen Entwicklung</h2>
+            <h2 data-de="Zeitliche Einordnung der technologischen Entwicklung" data-en="Chronological Classification of Technological Development">Zeitliche Einordnung der technologischen Entwicklung</h2>
             <div class="timeline-item">
                 <div class="timeline-year">2019</div>
-                <p>Erste nachweisbare Deepfake-Inhalte in den analysierten Social-Media-Konten</p>
+                <p data-de="Erste nachweisbare Deepfake-Inhalte in den analysierten Social-Media-Konten" data-en="First verifiable deepfake content in the analyzed social media accounts">Erste nachweisbare Deepfake-Inhalte in den analysierten Social-Media-Konten</p>
             </div>
             <div class="timeline-item">
                 <div class="timeline-year">2020</div>
-                <p>Signifikante Verbesserung der Deepfake-Qualität, nahezu perfekte synthetische Videos</p>
+                <p data-de="Signifikante Verbesserung der Deepfake-Qualität, nahezu perfekte synthetische Videos" data-en="Significant improvement in deepfake quality, nearly perfect synthetic videos">Signifikante Verbesserung der Deepfake-Qualität, nahezu perfekte synthetische Videos</p>
             </div>
             <div class="timeline-item">
                 <div class="timeline-year">2021</div>
-                <p>Erweiterte Fähigkeiten in der Textgenerierung und Bildmanipulation</p>
+                <p data-de="Erweiterte Fähigkeiten in der Textgenerierung und Bildmanipulation" data-en="Enhanced capabilities in text generation and image manipulation">Erweiterte Fähigkeiten in der Textgenerierung und Bildmanipulation</p>
             </div>
             <div class="timeline-item">
                 <div class="timeline-year">2022</div>
-                <p>Weitere Perfektionierung der Video-Synthese und Echtzeit-Generierung</p>
+                <p data-de="Weitere Perfektionierung der Video-Synthese und Echtzeit-Generierung" data-en="Further perfection of video synthesis and real-time generation">Weitere Perfektionierung der Video-Synthese und Echtzeit-Generierung</p>
             </div>
             <div class="timeline-item">
                 <div class="timeline-year">2025</div>
-                <p>Nicht mehr von echten Inhalten unterscheidbare Deepfake-Generation</p>
+                <p data-de="Nicht mehr von echten Inhalten unterscheidbare Deepfake-Generation" data-en="Deepfake generation no longer distinguishable from real content">Nicht mehr von echten Inhalten unterscheidbare Deepfake-Generation</p>
             </div>
         </section>
 
         <section class="gallery-section">
-            <h2>Beweisgalerie: Screenshots aus der Analyse</h2>
+            <h2 data-de="Beweisgalerie: Screenshots aus der Analyse" data-en="Evidence Gallery: Screenshots from Analysis">Beweisgalerie: Screenshots aus der Analyse</h2>
             
             <div class="gallery-controls">
                 <div class="pagination">
-                    <button id="prevBtn" onclick="changePage(-1)">Vorherige</button>
-                    <span class="page-info">Seite <span id="currentPage">1</span> von <span id="totalPages">1</span></span>
-                    <button id="nextBtn" onclick="changePage(1)">Nächste</button>
+                    <button id="prevBtn" onclick="changePage(-1)" data-de="Vorherige" data-en="Previous">Vorherige</button>
+                    <span class="page-info"><span data-de="Seite" data-en="Page">Seite</span> <span id="currentPage">1</span> <span data-de="von" data-en="of">von</span> <span id="totalPages">1</span></span>
+                    <button id="nextBtn" onclick="changePage(1)" data-de="Nächste" data-en="Next">Nächste</button>
                 </div>
             </div>
 
@@ -337,36 +416,557 @@
     </div>
 
     <script>
-        const images = [
-            { filename: '2019_Fully_generated_Deepfake_AI_Video.png', description: 'Vollständig generiertes Deepfake-AI-Video aus dem Jahr 2019. Beweis für frühe technologische Fähigkeiten.' },
-            { filename: '2020_AI_Deepfake_Video.png', description: 'AI-Deepfake-Video aus 2020 zeigt bereits beeindruckende Qualität der synthetischen Generierung.' },
-            { filename: '2020_AI_Deepfake_Video_2.png', description: 'Zweiter Beleg für AI-Deepfake-Videos aus 2020 mit weiter verbesserten Rendering-Techniken.' },
-            { filename: '2021_AI_Deepfake_Video_with_written_Text-only_small_error_ACAC_but_not_ACAB.png', description: 'AI-Video mit Textgenerierung aus 2021. Kleiner Fehler in Textgenerierung (ACAC statt ACAB) beweist synthetischen Ursprung.' },
-            { filename: '2021_AI_Flowers.png', description: 'KI-generierte Blumenmotive aus 2021 zeigen Fortschritte in der Bildsynthese.' },
-            { filename: '2022_AI_Deepfake_Video.png', description: 'Weiter perfektionierte AI-Deepfake-Video-Technologie aus dem Jahr 2022.' },
-            { filename: 'AI.png', description: 'Allgemeines AI-Beispielbild demonstrating synthetische Generierungsfähigkeiten.' },
-            { filename: 'Deepfake_of_a_LEGO_Rapper.png', description: 'Deepfake-Darstellung eines LEGO-Rappers, zeigt Vielseitigkeit der KI-Generierung.' },
-            { filename: 'EARLY_2025_AI_Video-not_distinguishable!!!.png', description: 'AI-Video aus Anfang 2025, nicht mehr von echten Inhalten unterscheidbar - Beweis für technologische Perfektion.' },
-            { filename: 'Evidence_Check_Timestamp.png', description: 'Zeitstempel-Überprüfung der Beweise, bestätigt die zeitliche Einordnung der Analyse.' },
-            { filename: 'Hannover.png', description: 'Synthetisch generierte Szene aus Hannover, Teil der kontinuierlichen Deepfake-Produktion.' },
-            { filename: 'Hannover_Girl.png', description: 'KI-generierte Personendarstellung aus Hannover, zeigt Fortschritte in der menschlichen Synthese.' },
-            { filename: 'He_is_also_Kuchen.png', description: 'Weitere synthetische Personendarstellung, belegt die systematische Natur der Generierung.' },
-            { filename: 'Instagram_Account_Biography.png', description: 'Instagram-Konto-Biografie als Beweis für die Existenz des synthetisch operierten Accounts.' },
-            { filename: 'Instagram_Account_Informations.png', description: 'Weitere Account-Informationen als Nachweis für den künstlich betriebenen Social-Media-Account.' },
-            { filename: 'KI-Elite_is_no_joke-they_are!.png', description: 'Hinweis auf die KI-Elite hinter den Operationen, bestätigt die organisierte Natur der Sekte.' },
-            { filename: 'Markiert.png', description: 'Markierte Beweisaufnahme mit wichtigen Hinweisen auf die synthetische Natur des Inhalts.' },
-            { filename: 'Mid_2025_AI_Video.png', description: 'AI-Video aus Mitte 2025 mit weiter verbesserten Rendering-Fähigkeiten.' },
-            { filename: 'Oh_lol_Mr.Bloxx_is_here_(I_knew_before_because_I_know_all_about_this_terrorists!).png', description: 'Referenz zu bekannten Figuren in der Deepfake-Szene, zeigt die Vernetzung der Akteure.' },
-            { filename: 'Original_People_behind_those_Deepfakes_known.png', description: 'Hinweis auf die identifizierten Personen hinter den Deepfake-Operationen.' },
-            { filename: 'Pheno_Wolfsburg_Germany_Deepfake.png', description: 'Standortbezogener Deepfake aus Wolfsburg, zeigt geografische Verteilung der Operationen.' }
+        const allImageFiles = [
+            '2019_Fully_generated_Deepfake_AI_Video.png',
+            '2020_AI_Deepfake_Video.png',
+            '2020_AI_Deepfake_Video_2.png',
+            '2021_AI_Deepfake_Video_with_written_Text-only_small_error_ACAC_but_not_ACAB.png',
+            '2021_AI_Flowers.png',
+            '2022_AI_Deepfake_Video.png',
+            'AI.png',
+            'Deepfake_of_a_LEGO_Rapper.png',
+            'EARLY_2025_AI_Video-not_distinguishable!!!.png',
+            'Evidence_Check_Timestamp.png',
+            'Hannover.png',
+            'Hannover_Girl.png',
+            'He_is_also_Kuchen.png',
+            'Instagram_Account_Biography.png',
+            'Instagram_Account_Informations.png',
+            'KI-Elite_is_no_joke-they_are!.png',
+            'Markiert.png',
+            'Mid_2025_AI_Video.png',
+            'Oh_lol_Mr.Bloxx_is_here_(I_knew_before_because_I_know_all_about_this_terrorists!).png',
+            'Original_People_behind_those_Deepfakes_known.png',
+            'Pheno_Wolfsburg_Germany_Deepfake.png',
+            'Screenshot 2026-03-23 231537.png',
+            'Screenshot 2026-03-23 231604.png',
+            'Screenshot 2026-03-23 231654.png',
+            'Screenshot 2026-03-23 231711.png',
+            'Screenshot 2026-03-23 231726.png',
+            'Screenshot 2026-03-23 231740.png',
+            'Screenshot 2026-03-23 231754.png',
+            'Screenshot 2026-03-23 231811.png',
+            'Screenshot 2026-03-23 231826.png',
+            'Screenshot 2026-03-23 231839.png',
+            'Screenshot 2026-03-23 231851.png',
+            'Screenshot 2026-03-23 231910.png',
+            'Screenshot 2026-03-23 231934.png',
+            'Screenshot 2026-03-23 231946.png',
+            'Screenshot 2026-03-23 232005.png',
+            'Screenshot 2026-03-23 232022.png',
+            'Screenshot 2026-03-23 232038.png',
+            'Screenshot 2026-03-23 232051.png',
+            'Screenshot 2026-03-23 232103.png',
+            'Screenshot 2026-03-23 232116.png',
+            'Screenshot 2026-03-23 232128.png',
+            'Screenshot 2026-03-23 232141.png',
+            'Screenshot 2026-03-23 232153.png',
+            'Screenshot 2026-03-23 232212.png',
+            'Screenshot 2026-03-23 232225.png',
+            'Screenshot 2026-03-23 232236.png',
+            'Screenshot 2026-03-23 232248.png',
+            'Screenshot 2026-03-23 232306.png',
+            'Screenshot 2026-03-23 232405.png',
+            'Screenshot 2026-03-23 232419.png',
+            'Screenshot 2026-03-23 232431.png',
+            'Screenshot 2026-03-23 232442.png',
+            'Screenshot 2026-03-23 232455.png',
+            'Screenshot 2026-03-23 232507.png',
+            'Screenshot 2026-03-23 232521.png',
+            'Screenshot 2026-03-23 232536.png',
+            'Screenshot 2026-03-23 232550.png',
+            'Screenshot 2026-03-23 232602.png',
+            'Screenshot 2026-03-23 232614.png',
+            'Screenshot 2026-03-23 232626.png',
+            'Screenshot 2026-03-23 232639.png',
+            'Screenshot 2026-03-23 232656.png',
+            'Screenshot 2026-03-23 232709.png',
+            'Screenshot 2026-03-23 232721.png',
+            'Screenshot 2026-03-23 232736.png',
+            'Screenshot 2026-03-23 232749.png',
+            'Screenshot 2026-03-23 232802.png',
+            'Screenshot 2026-03-23 232814.png',
+            'Screenshot 2026-03-23 232826.png',
+            'Screenshot 2026-03-23 232841.png',
+            'Screenshot 2026-03-23 232854.png',
+            'Screenshot 2026-03-23 232911.png',
+            'Screenshot 2026-03-23 232924.png',
+            'Screenshot 2026-03-23 232939.png',
+            'Screenshot 2026-03-23 232955.png',
+            'Screenshot 2026-03-23 233009.png',
+            'Screenshot 2026-03-23 233021.png',
+            'Screenshot 2026-03-23 233034.png',
+            'Screenshot 2026-03-23 233050.png',
+            'Screenshot 2026-03-23 233101.png',
+            'Screenshot 2026-03-23 233113.png',
+            'Screenshot 2026-03-23 233136.png',
+            'Screenshot 2026-03-23 233149.png',
+            'Screenshot 2026-03-23 233201.png',
+            'Screenshot 2026-03-23 233212.png',
+            'Screenshot 2026-03-23 233227.png',
+            'Screenshot 2026-03-23 233241.png',
+            'Screenshot 2026-03-23 233258.png',
+            'Screenshot 2026-03-23 233310.png',
+            'Screenshot 2026-03-23 233322.png',
+            'Screenshot 2026-03-23 233339.png',
+            'Screenshot 2026-03-23 233358.png',
+            'Screenshot 2026-03-23 233410.png',
+            'Screenshot 2026-03-23 233424.png',
+            'Screenshot 2026-03-23 233447.png',
+            'Screenshot 2026-03-23 233500.png',
+            'Screenshot 2026-03-23 233512.png',
+            'Screenshot 2026-03-23 233524.png',
+            'Screenshot 2026-03-23 233537.png',
+            'Screenshot 2026-03-23 233550.png',
+            'Screenshot 2026-03-23 233604.png',
+            'Screenshot 2026-03-23 233618.png',
+            'Screenshot 2026-03-23 233634.png',
+            'Screenshot 2026-03-23 233645.png',
+            'Screenshot 2026-03-23 233658.png',
+            'Screenshot 2026-03-23 233710.png',
+            'Screenshot 2026-03-23 233721.png',
+            'Screenshot 2026-03-23 233734.png',
+            'Screenshot 2026-03-23 233746.png',
+            'Screenshot 2026-03-23 233800.png',
+            'Screenshot 2026-03-23 233813.png',
+            'Screenshot 2026-03-23 233825.png',
+            'Screenshot 2026-03-23 233838.png',
+            'Screenshot 2026-03-23 233850.png',
+            'Screenshot 2026-03-23 233905.png',
+            'Screenshot 2026-03-23 233917.png',
+            'Screenshot 2026-03-23 233946.png',
+            'Screenshot 2026-03-23 233959.png',
+            'Screenshot 2026-03-23 234011.png',
+            'Screenshot 2026-03-23 234022.png',
+            'Screenshot 2026-03-23 234033.png',
+            'Screenshot 2026-03-23 234044.png',
+            'Screenshot 2026-03-23 234056.png',
+            'Screenshot 2026-03-23 234109.png',
+            'Screenshot 2026-03-23 234121.png',
+            'Screenshot 2026-03-23 234134.png',
+            'Screenshot 2026-03-23 234149.png',
+            'Screenshot 2026-03-23 234203.png',
+            'Screenshot 2026-03-23 234218.png',
+            'Screenshot 2026-03-23 234231.png',
+            'Screenshot 2026-03-23 234244.png',
+            'Screenshot 2026-03-23 234255.png',
+            'Screenshot 2026-03-23 234406.png',
+            'Screenshot 2026-03-23 234419.png',
+            'Screenshot 2026-03-23 234431.png',
+            'Screenshot 2026-03-23 234442.png',
+            'Screenshot 2026-03-23 234453.png',
+            'Screenshot 2026-03-23 234526.png',
+            'Screenshot 2026-03-23 234552.png',
+            'Screenshot 2026-03-23 234621.png',
+            'Screenshot 2026-03-23 234632.png',
+            'Screenshot 2026-03-23 234643.png',
+            'Screenshot 2026-03-23 234654.png',
+            'Screenshot 2026-03-23 234706.png',
+            'Screenshot 2026-03-23 234720.png',
+            'Screenshot 2026-03-23 234810.png',
+            'Screenshot 2026-03-23 234822.png',
+            'Screenshot 2026-03-23 234832.png',
+            'Screenshot 2026-03-23 234905.png',
+            'Screenshot 2026-03-23 234940.png',
+            'Screenshot 2026-03-23 234952.png',
+            'Screenshot 2026-03-23 235004.png',
+            'Screenshot 2026-03-23 235014.png',
+            'Screenshot 2026-03-23 235111.png',
+            'Screenshot 2026-03-23 235125.png',
+            'Screenshot 2026-03-23 235158.png',
+            'Screenshot 2026-03-23 235227.png',
+            'Screenshot 2026-03-23 235308.png',
+            'Screenshot 2026-03-23 235320.png',
+            'Screenshot 2026-03-23 235331.png',
+            'Screenshot 2026-03-23 235427.png',
+            'Screenshot 2026-03-23 235439.png',
+            'Screenshot 2026-03-23 235455.png',
+            'Screenshot 2026-03-23 235510.png',
+            'Screenshot 2026-03-23 235522.png',
+            'Screenshot 2026-03-23 235533.png',
+            'Screenshot 2026-03-23 235544.png',
+            'Screenshot 2026-03-23 235648.png',
+            'Screenshot 2026-03-23 235702.png',
+            'Screenshot 2026-03-23 235711.png',
+            'Screenshot 2026-03-23 235721.png',
+            'Screenshot 2026-03-23 235732.png',
+            'Screenshot 2026-03-23 235743.png',
+            'Screenshot 2026-03-23 235752.png',
+            'Screenshot 2026-03-23 235804.png',
+            'Screenshot 2026-03-23 235949.png',
+            'Screenshot 2026-03-24 000000.png',
+            'Screenshot 2026-03-24 000011.png',
+            'Screenshot 2026-03-24 000023.png',
+            'Screenshot 2026-03-24 000034.png',
+            'Screenshot 2026-03-24 000132.png',
+            'Screenshot 2026-03-24 000145.png',
+            'Screenshot 2026-03-24 000335.png',
+            'Screenshot 2026-03-24 000348.png',
+            'Screenshot 2026-03-24 000441.png',
+            'Screenshot 2026-03-24 000453.png',
+            'Screenshot 2026-03-24 000508.png',
+            'Screenshot 2026-03-24 000523.png',
+            'Screenshot 2026-03-24 000543.png',
+            'Screenshot 2026-03-24 000557.png',
+            'Screenshot 2026-03-24 000613.png',
+            'Screenshot 2026-03-24 000655.png',
+            'Screenshot 2026-03-24 000707.png',
+            'Screenshot 2026-03-24 000718.png',
+            'Screenshot 2026-03-24 000729.png',
+            'Screenshot 2026-03-24 000746.png',
+            'Screenshot 2026-03-24 000920.png',
+            'Screenshot 2026-03-24 000932.png',
+            'Screenshot 2026-03-24 000943.png',
+            'Screenshot 2026-03-24 000954.png',
+            'Screenshot 2026-03-24 001005.png',
+            'Screenshot 2026-03-24 001032.png',
+            'Screenshot 2026-03-24 001106.png',
+            'Screenshot 2026-03-24 001118.png',
+            'Screenshot 2026-03-24 001428.png',
+            'Screenshot 2026-03-24 001814.png',
+            'Screenshot 2026-03-24 001826.png',
+            'Screenshot 2026-03-24 001854.png',
+            'Screenshot 2026-03-24 002143.png',
+            'Screenshot 2026-03-24 002309.png',
+            'Screenshot 2026-03-24 002321.png',
+            'Screenshot 2026-03-24 002336.png',
+            'Screenshot 2026-03-24 002349.png',
+            'Screenshot 2026-03-24 002435.png',
+            'Screenshot 2026-03-24 002449.png',
+            'Screenshot 2026-03-24 002556.png',
+            'Screenshot 2026-03-24 002607.png',
+            'Screenshot 2026-03-24 002653.png',
+            'Screenshot 2026-03-24 002755.png',
+            'Screenshot 2026-03-24 002809.png',
+            'Screenshot 2026-03-24 002848.png',
+            'Screenshot 2026-03-24 002902.png',
+            'Screenshot 2026-03-24 002941.png',
+            'Screenshot 2026-03-24 003259.png',
+            'Screenshot 2026-03-24 003326.png',
+            'Screenshot 2026-03-24 003352.png',
+            'Screenshot 2026-03-24 003410.png',
+            'Screenshot 2026-03-24 003807.png',
+            'She_is_the_Skepsiz_AI_musician.png',
+            'Shot_from_M9id_2023_AI_Video.png',
+            'This_is_Screenshot_from_2022_AI_Video.png',
+            'This_is_ai_shit-everything_from_this_user.png',
+            'Tiger_Cards_(no_flying_animals).png',
+            'Video-.png',
+            'Video-Screenshot 2026-03-23 233930.png',
+            'Video-Screenshot 2026-03-23 234307.png',
+            'Video-Screenshot 2026-03-23 234326.png',
+            'Video-Screenshot 2026-03-23 234351.png',
+            'Video-Screenshot 2026-03-23 234509.png',
+            'Video-Screenshot 2026-03-23 234537.png',
+            'Video-Screenshot 2026-03-23 234607.png',
+            'Video-Screenshot 2026-03-23 234733.png',
+            'Video-Screenshot 2026-03-23 235040.png',
+            'Video-Screenshot 2026-03-23 235057.png',
+            'Video-Screenshot 2026-03-23 235139.png',
+            'Video-Screenshot 2026-03-23 235211.png',
+            'Video-Screenshot 2026-03-23 235252.png',
+            'Video-Screenshot 2026-03-23 235557.png',
+            'Video-Screenshot 2026-03-23 235829.png',
+            'Video-Screenshot 2026-03-23 235931.png',
+            'Video-Screenshot 2026-03-24 000051.png',
+            'Video-Screenshot 2026-03-24 000402.png',
+            'Video-Screenshot 2026-03-24 000639.png',
+            'Video-Screenshot 2026-03-24 000758.png',
+            'Video-Screenshot 2026-03-24 000813.png',
+            'Video-Screenshot 2026-03-24 000829.png',
+            'Video-Screenshot 2026-03-24 000848.png',
+            'Video-Screenshot 2026-03-24 000906.png',
+            'Video-Screenshot 2026-03-24 001018.png',
+            'Video-Screenshot 2026-03-24 001053.png',
+            'Video-Screenshot 2026-03-24 001130.png',
+            'Video-Screenshot 2026-03-24 001149.png',
+            'Video-Screenshot 2026-03-24 001205.png',
+            'Video-Screenshot 2026-03-24 001221.png',
+            'Video-Screenshot 2026-03-24 001239.png',
+            'Video-Screenshot 2026-03-24 001254.png',
+            'Video-Screenshot 2026-03-24 001428.png',
+            'Video-Screenshot 2026-03-24 001451.png',
+            'Video-Screenshot 2026-03-24 001529.png',
+            'Video-Screenshot 2026-03-24 001546.png',
+            'Video-Screenshot 2026-03-24 001621.png',
+            'Video-Screenshot 2026-03-24 001637.png',
+            'Video-Screenshot 2026-03-24 001723.png',
+            'Video-Screenshot 2026-03-24 001739.png',
+            'Video-Screenshot 2026-03-24 001840.png',
+            'Video-Screenshot 2026-03-24 001921.png',
+            'Video-Screenshot 2026-03-24 001936.png',
+            'Video-Screenshot 2026-03-24 001951.png',
+            'Video-Screenshot 2026-03-24 002006.png',
+            'Video-Screenshot 2026-03-24 002021.png',
+            'Video-Screenshot 2026-03-24 002036.png',
+            'Video-Screenshot 2026-03-24 002051.png',
+            'Video-Screenshot 2026-03-24 002106.png',
+            'Video-Screenshot 2026-03-24 002123.png',
+            'Video-Screenshot 2026-03-24 002158.png',
+            'Video-Screenshot 2026-03-24 002214.png',
+            'Video-Screenshot 2026-03-24 002251.png',
+            'Video-Screenshot 2026-03-24 002421.png',
+            'Video-Screenshot 2026-03-24 002514.png',
+            'Video-Screenshot 2026-03-24 002527.png',
+            'Video-Screenshot 2026-03-24 002542.png',
+            'Video-Screenshot 2026-03-24 002620.png',
+            'Video-Screenshot 2026-03-24 002636.png',
+            'Video-Screenshot 2026-03-24 003014.png',
+            'Video-Screenshot 2026-03-24 003028.png',
+            'Video-Screenshot 2026-03-24 003042.png',
+            'Video-Screenshot 2026-03-24 003058.png',
+            'Video-Screenshot 2026-03-24 003133.png',
+            'Video-Screenshot 2026-03-24 003231.png',
+            'Video_Page_Overview-Screenshot 2026-03-24 003435.png',
+            'Video_Page_Overview-Screenshot 2026-03-24 003457.png',
+            'Video_Page_Overview-Screenshot 2026-03-24 003519.png',
+            'Video_Page_Overview-Screenshot 2026-03-24 003535.png',
+            'Video_Page_Overview-Screenshot 2026-03-24 003551.png',
+            'Video_Page_Overview-Screenshot 2026-03-24 003605.png',
+            'Video_Page_Overview-Screenshot 2026-03-24 003622.png',
+            'Video_Page_Overview-Screenshot 2026-03-24 003705.png',
+            'Video_Page_Overview-Screenshot 2026-03-24 003723.png',
+            'Who_is_this_guy.png',
+            'Why_they_have_NWO_masks-I_tell_you!.png',
+            'Wir_lieben_Tanzen.png',
+            'this_is_2020_ai_video_from_Kuchen_TV_Herr_Kuchen-AI_Terrorists!.png',
+            'tomatolix-auf-crack.png'
         ];
 
+        // Initialize variables first
         const itemsPerPage = 16;
         let currentPage = 1;
-        const totalPages = Math.ceil(images.length / itemsPerPage);
+        let currentLanguage = 'de';
+        let totalPagesCount = 0;
+
+        // Generate descriptions for all images
+        const images = allImageFiles.map(filename => {
+            const description = generateDescription(filename);
+            return { filename, description };
+        });
+
+        totalPagesCount = Math.ceil(images.length / itemsPerPage);
+
+        function generateDescription(filename) {
+            const baseDesc = currentLanguage === 'de' ? 
+                'Screenshot aus dem Instagram-Account "wirliebentanzen1love1family". Beweis für synthetisch operierten Account seit 2019.' :
+                'Screenshot from Instagram account "wirliebentanzen1love1family". Evidence of synthetically operated account since 2019.';
+            
+            // Special descriptions for specific files
+            const specialDescriptions = {
+                '2019_Fully_generated_Deepfake_AI_Video.png': {
+                    de: 'Vollständig generiertes Deepfake-AI-Video aus dem Jahr 2019. Beweis für frühe technologische Fähigkeiten.',
+                    en: 'Fully generated deepfake AI video from 2019. Evidence of early technological capabilities.'
+                },
+                '2020_AI_Deepfake_Video.png': {
+                    de: 'AI-Deepfake-Video aus 2020 zeigt bereits beeindruckende Qualität der synthetischen Generierung.',
+                    en: 'AI deepfake video from 2020 already showing impressive quality of synthetic generation.'
+                },
+                '2020_AI_Deepfake_Video_2.png': {
+                    de: 'Zweiter Beleg für AI-Deepfake-Videos aus 2020 mit weiter verbesserten Rendering-Techniken.',
+                    en: 'Second evidence of AI deepfake videos from 2020 with further improved rendering techniques.'
+                },
+                '2021_AI_Deepfake_Video_with_written_Text-only_small_error_ACAC_but_not_ACAB.png': {
+                    de: 'AI-Video mit Textgenerierung aus 2021. Kleiner Fehler in Textgenerierung (ACAC statt ACAB) beweist synthetischen Ursprung.',
+                    en: 'AI video with text generation from 2021. Small error in text generation (ACAC instead of ACAB) proves synthetic origin.'
+                },
+                '2021_AI_Flowers.png': {
+                    de: 'KI-generierte Blumenmotive aus 2021 zeigen Fortschritte in der Bildsynthese.',
+                    en: 'AI-generated flower motifs from 2021 show progress in image synthesis.'
+                },
+                '2022_AI_Deepfake_Video.png': {
+                    de: 'Weiter perfektionierte AI-Deepfake-Video-Technologie aus dem Jahr 2022.',
+                    en: 'Further perfected AI deepfake video technology from 2022.'
+                },
+                'AI.png': {
+                    de: 'Allgemeines AI-Beispielbild demonstrating synthetische Generierungsfähigkeiten.',
+                    en: 'General AI example image demonstrating synthetic generation capabilities.'
+                },
+                'Deepfake_of_a_LEGO_Rapper.png': {
+                    de: 'Deepfake-Darstellung eines LEGO-Rappers, zeigt Vielseitigkeit der KI-Generierung.',
+                    en: 'Deepfake representation of a LEGO rapper, showing versatility of AI generation.'
+                },
+                'EARLY_2025_AI_Video-not_distinguishable!!!.png': {
+                    de: 'AI-Video aus Anfang 2025, nicht mehr von echten Inhalten unterscheidbar - Beweis für technologische Perfektion.',
+                    en: 'AI video from early 2025, no longer distinguishable from real content - proof of technological perfection.'
+                },
+                'Evidence_Check_Timestamp.png': {
+                    de: 'Zeitstempel-Überprüfung der Beweise, bestätigt die zeitliche Einordnung der Analyse.',
+                    en: 'Timestamp verification of evidence, confirming the chronological classification of the analysis.'
+                },
+                'Instagram_Account_Biography.png': {
+                    de: 'Instagram-Konto-Biografie als Beweis für die Existenz des synthetisch operierten Accounts.',
+                    en: 'Instagram account biography as evidence for the existence of the synthetically operated account.'
+                },
+                'Instagram_Account_Informations.png': {
+                    de: 'Weitere Account-Informationen als Nachweis für den künstlich betriebenen Social-Media-Account.',
+                    en: 'Additional account information as evidence for the artificially operated social media account.'
+                },
+                'KI-Elite_is_no_joke-they_are!.png': {
+                    de: 'Hinweis auf die KI-Elite hinter den Operationen, bestätigt die organisierte Natur der Sekte.',
+                    en: 'Reference to the AI elite behind the operations, confirming the organized nature of the cult.'
+                },
+                'Original_People_behind_those_Deepfakes_known.png': {
+                    de: 'Hinweis auf die identifizierten Personen hinter den Deepfake-Operationen.',
+                    en: 'Reference to the identified people behind the deepfake operations.'
+                },
+                'She_is_the_Skepsiz_AI_musician.png': {
+                    de: 'KI-generierte Musikerin "Skepsiz", zeigt kreative Anwendung der Deepfake-Technologie.',
+                    en: 'AI-generated musician "Skepsiz", showing creative application of deepfake technology.'
+                },
+                'This_is_ai_shit-everything_from_this_user.png': {
+                    de: 'Deutlicher Hinweis auf KI-generierte Inhalte, bestätigt synthetische Natur des Accounts.',
+                    en: 'Clear reference to AI-generated content, confirming synthetic nature of the account.'
+                },
+                'Wir_lieben_Tanzen.png': {
+                    de: 'Referenz auf den Account-Namen "wirliebentanzen1love1family", zeigt thematische Ausrichtung.',
+                    en: 'Reference to the account name "wirliebentanzen1love1family", showing thematic orientation.'
+                },
+                'this_is_2020_ai_video_from_Kuchen_TV_Herr_Kuchen-AI_Terrorists!.png': {
+                    de: 'Direkter Hinweis auf AI-Terroristen-Verbindungen und Kuchen-TV als Teil des Netzwerks.',
+                    en: 'Direct reference to AI terrorist connections and Kuchen TV as part of the network.'
+                },
+                'Why_they_have_NWO_masks-I_tell_you!.png': {
+                    de: 'Hinweis auf NWO-Masken und Verschwörungselemente in der Operation.',
+                    en: 'Reference to NWO masks and conspiracy elements in the operation.'
+                }
+            };
+
+            return specialDescriptions[filename] || { de: baseDesc, en: baseDesc };
+        }
+
+        function initLanguage() {
+            updateLanguageSwitcher();
+            updatePageLanguage();
+        }
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'de' ? 'en' : 'de';
+            updateLanguageSwitcher();
+            updatePageLanguage();
+            renderGallery();
+        }
+
+        function updateLanguageSwitcher() {
+            const flagContainer = document.getElementById('flagContainer');
+            const langText = document.getElementById('langText');
+            
+            if (currentLanguage === 'de') {
+                flagContainer.innerHTML = `
+                    <img src="data:image/svg+xml;base64,${btoa('<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="15" fill="#000000"/><rect width="20" height="5" fill="#DD0000"/><rect width="20" height="10" fill="#FFCE00"/></svg>')}" class="flag" alt="Germany">
+                    <img src="data:image/svg+xml;base64,${btoa('<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="15" fill="#ED2939"/><rect width="20" height="5" fill="white"/><rect width="20" height="10" fill="#002395"/></svg>')}" class="flag" alt="Austria">
+                `;
+                langText.textContent = 'DEUTSCHE VERSION';
+            } else {
+                flagContainer.innerHTML = `
+                    <img src="data:image/svg+xml;base64,${btoa('<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="15" fill="#012169"/><path d="M0 0l20 15M0 15L20 0" stroke="white" stroke-width="2"/><path d="M0 0l20 15M0 15L20 0" stroke="#C8102E" stroke-width="1.2"/></svg>')}" class="flag" alt="UK">
+                    <img src="data:image/svg+xml;base64,${btoa('<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="15" fill="#B22234"/><path d="M0 0h20v15H0z" fill="white"/><path d="M0 1.7h20m0 3.3H0m0 3.3h20m0 3.3H0" stroke="#B22234" stroke-width="1.7"/><rect width="8" height="8.1" fill="#3C3B6E"/></svg>')}" class="flag" alt="US">
+                `;
+                langText.textContent = 'ENGLISH VERSION';
+            }
+        }
+
+        function generateDescription(filename) {
+            const baseDesc = currentLanguage === 'de' ? 
+                'Screenshot aus dem Instagram-Account "wirliebentanzen1love1family". Beweis für synthetisch operierten Account seit 2019.' :
+                'Screenshot from Instagram account "wirliebentanzen1love1family". Evidence of synthetically operated account since 2019.';
+            
+            // Special descriptions for specific files
+            const specialDescriptions = {
+                '2019_Fully_generated_Deepfake_AI_Video.png': {
+                    de: 'Vollständig generiertes Deepfake-AI-Video aus dem Jahr 2019. Beweis für frühe technologische Fähigkeiten.',
+                    en: 'Fully generated deepfake AI video from 2019. Evidence of early technological capabilities.'
+                },
+                '2020_AI_Deepfake_Video.png': {
+                    de: 'AI-Deepfake-Video aus 2020 zeigt bereits beeindruckende Qualität der synthetischen Generierung.',
+                    en: 'AI deepfake video from 2020 already showing impressive quality of synthetic generation.'
+                },
+                '2020_AI_Deepfake_Video_2.png': {
+                    de: 'Zweiter Beleg für AI-Deepfake-Videos aus 2020 mit weiter verbesserten Rendering-Techniken.',
+                    en: 'Second evidence of AI deepfake videos from 2020 with further improved rendering techniques.'
+                },
+                '2021_AI_Deepfake_Video_with_written_Text-only_small_error_ACAC_but_not_ACAB.png': {
+                    de: 'AI-Video mit Textgenerierung aus 2021. Kleiner Fehler in Textgenerierung (ACAC statt ACAB) beweist synthetischen Ursprung.',
+                    en: 'AI video with text generation from 2021. Small error in text generation (ACAC instead of ACAB) proves synthetic origin.'
+                },
+                '2021_AI_Flowers.png': {
+                    de: 'KI-generierte Blumenmotive aus 2021 zeigen Fortschritte in der Bildsynthese.',
+                    en: 'AI-generated flower motifs from 2021 show progress in image synthesis.'
+                },
+                '2022_AI_Deepfake_Video.png': {
+                    de: 'Weiter perfektionierte AI-Deepfake-Video-Technologie aus dem Jahr 2022.',
+                    en: 'Further perfected AI deepfake video technology from 2022.'
+                },
+                'AI.png': {
+                    de: 'Allgemeines AI-Beispielbild demonstrating synthetische Generierungsfähigkeiten.',
+                    en: 'General AI example image demonstrating synthetic generation capabilities.'
+                },
+                'Deepfake_of_a_LEGO_Rapper.png': {
+                    de: 'Deepfake-Darstellung eines LEGO-Rappers, zeigt Vielseitigkeit der KI-Generierung.',
+                    en: 'Deepfake representation of a LEGO rapper, showing versatility of AI generation.'
+                },
+                'EARLY_2025_AI_Video-not_distinguishable!!!.png': {
+                    de: 'AI-Video aus Anfang 2025, nicht mehr von echten Inhalten unterscheidbar - Beweis für technologische Perfektion.',
+                    en: 'AI video from early 2025, no longer distinguishable from real content - proof of technological perfection.'
+                },
+                'Evidence_Check_Timestamp.png': {
+                    de: 'Zeitstempel-Überprüfung der Beweise, bestätigt die zeitliche Einordnung der Analyse.',
+                    en: 'Timestamp verification of evidence, confirming the chronological classification of the analysis.'
+                },
+                'Instagram_Account_Biography.png': {
+                    de: 'Instagram-Konto-Biografie als Beweis für die Existenz des synthetisch operierten Accounts.',
+                    en: 'Instagram account biography as evidence for the existence of the synthetically operated account.'
+                },
+                'Instagram_Account_Informations.png': {
+                    de: 'Weitere Account-Informationen als Nachweis für den künstlich betriebenen Social-Media-Account.',
+                    en: 'Additional account information as evidence for the artificially operated social media account.'
+                },
+                'KI-Elite_is_no_joke-they_are!.png': {
+                    de: 'Hinweis auf die KI-Elite hinter den Operationen, bestätigt die organisierte Natur der Sekte.',
+                    en: 'Reference to the AI elite behind the operations, confirming the organized nature of the cult.'
+                },
+                'Original_People_behind_those_Deepfakes_known.png': {
+                    de: 'Hinweis auf die identifizierten Personen hinter den Deepfake-Operationen.',
+                    en: 'Reference to the identified people behind the deepfake operations.'
+                },
+                'She_is_the_Skepsiz_AI_musician.png': {
+                    de: 'KI-generierte Musikerin "Skepsiz", zeigt kreative Anwendung der Deepfake-Technologie.',
+                    en: 'AI-generated musician "Skepsiz", showing creative application of deepfake technology.'
+                },
+                'This_is_ai_shit-everything_from_this_user.png': {
+                    de: 'Deutlicher Hinweis auf KI-generierte Inhalte, bestätigt synthetische Natur des Accounts.',
+                    en: 'Clear reference to AI-generated content, confirming synthetic nature of the account.'
+                },
+                'Wir_lieben_Tanzen.png': {
+                    de: 'Referenz auf den Account-Namen "wirliebentanzen1love1family", zeigt thematische Ausrichtung.',
+                    en: 'Reference to the account name "wirliebentanzen1love1family", showing thematic orientation.'
+                },
+                'this_is_2020_ai_video_from_Kuchen_TV_Herr_Kuchen-AI_Terrorists!.png': {
+                    de: 'Direkter Hinweis auf AI-Terroristen-Verbindungen und Kuchen-TV als Teil des Netzwerks.',
+                    en: 'Direct reference to AI terrorist connections and Kuchen TV as part of the network.'
+                },
+                'Why_they_have_NWO_masks-I_tell_you!.png': {
+                    de: 'Hinweis auf NWO-Masken und Verschwörungselemente in der Operation.',
+                    en: 'Reference to NWO masks and conspiracy elements in the operation.'
+                }
+            };
+
+            return specialDescriptions[filename] || { de: baseDesc, en: baseDesc };
+        }
+
+        function updatePageLanguage() {
+            document.querySelectorAll('[data-de][data-en]').forEach(element => {
+                element.textContent = element.getAttribute(`data-${currentLanguage}`);
+            });
+        }
 
         function initGallery() {
-            document.getElementById('totalPages').textContent = totalPages;
+            const currentPageEl = document.getElementById('currentPage');
+            const totalPagesEl = document.getElementById('totalPages');
+            
+            if (currentPageEl) currentPageEl.textContent = currentPage;
+            if (totalPagesEl) totalPagesEl.textContent = totalPagesCount;
+            
             renderGallery();
             updatePaginationButtons();
         }
@@ -384,27 +984,38 @@
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'gallery-item';
                 
+                const evidenceText = currentLanguage === 'de' ? 'Beweis' : 'Evidence';
+                const description = image.description[currentLanguage];
+                
                 galleryItem.innerHTML = `
                     <img src="Beweise/Instagram/wirliebentanzen1love1family/Screenshots/${image.filename}" 
-                         alt="${image.description}" 
+                         alt="${description}" 
                          onclick="openModal(this.src)"
-                         loading="lazy">
+                         loading="lazy"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="error-placeholder" style="display:none; padding:20px; text-align:center; background:#f0f0f0; border-radius:8px;">
+                        <p>Bild nicht gefunden: ${image.filename}</p>
+                    </div>
                     <div class="gallery-item-content">
-                        <h3>Beweis ${actualIndex + 1}: ${image.filename}</h3>
-                        <p>${image.description}</p>
+                        <h3>${evidenceText} ${actualIndex + 1}: ${image.filename}</h3>
+                        <p>${description}</p>
                     </div>
                 `;
                 
                 galleryGrid.appendChild(galleryItem);
             });
 
-            document.getElementById('currentPage').textContent = currentPage;
+            // Update page display
+            const currentPageEl = document.getElementById('currentPage');
+            const totalPagesEl = document.getElementById('totalPages');
+            if (currentPageEl) currentPageEl.textContent = currentPage;
+            if (totalPagesEl) totalPagesEl.textContent = totalPagesCount.toString();
         }
 
         function changePage(direction) {
             currentPage += direction;
             if (currentPage < 1) currentPage = 1;
-            if (currentPage > totalPages) currentPage = totalPages;
+            if (currentPage > totalPagesCount) currentPage = totalPagesCount;
             
             renderGallery();
             updatePaginationButtons();
@@ -415,7 +1026,7 @@
 
         function updatePaginationButtons() {
             document.getElementById('prevBtn').disabled = currentPage === 1;
-            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+            document.getElementById('nextBtn').disabled = currentPage === totalPagesCount;
         }
 
         function openModal(imageSrc) {
@@ -444,8 +1055,11 @@
             }
         });
 
-        // Initialize gallery when page loads
-        document.addEventListener('DOMContentLoaded', initGallery);
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initLanguage();
+            initGallery();
+        });
     </script>
 </body>
 </html>
