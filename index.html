@@ -71,9 +71,8 @@
         }
 
         .language-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            position: relative;
+            margin: 15px auto 0;
             background: rgba(255, 255, 255, 0.2);
             border: 2px solid rgba(255, 255, 255, 0.3);
             color: white;
@@ -320,6 +319,48 @@
             color: #856404;
         }
 
+        .links-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .links-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .link-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .link-item a {
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+            word-break: break-all;
+        }
+
+        .link-item a:hover {
+            text-decoration: underline;
+            color: #764ba2;
+        }
+
+        .link-item p {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -406,6 +447,35 @@
 
             <div class="gallery-grid" id="galleryGrid">
                 <!-- Galerie-Inhalte werden per JavaScript geladen -->
+            </div>
+        </section>
+
+        <section class="links-section">
+            <h2 data-de="Links & Quellen" data-en="Links & Sources">Links & Quellen</h2>
+            
+            <div class="link-item">
+                <a href="https://github.com/aptthole" target="_blank">github.com/aptthole</a>
+                <p data-de="Ein Hacker aus Hannover mit Insider-Wissen. Bekannt seit 2 Jahren. Behauptet, dass die NWO Cybermobbinggruppe auch hinter dem Instagram Account wirliebentanzen1love1family steckt. Trotz Verschwörungscharakter klingen alle Aussagen plausibel und widerspruchsfrei." data-en="A hacker from Hanover with insider knowledge. Known for 2 years. Claims that the NWO cyberbullying group is also behind the Instagram account wirliebentanzen1love1family. Despite conspiracy character, all statements sound plausible and contradiction-free.">Ein Hacker aus Hannover mit Insider-Wissen. Bekannt seit 2 Jahren. Behauptet, dass die NWO Cybermobbinggruppe auch hinter dem Instagram Account wirliebentanzen1love1family steckt. Trotz Verschwörungscharakter klingen alle Aussagen plausibel und widerspruchsfrei.</p>
+            </div>
+
+            <div class="link-item">
+                <a href="https://nwogermany.github.io/" target="_blank">nwogermany.github.io</a>
+                <p data-de="GitHub Webseite von nwogermany - Zwei junge Männer und eine Frau, die alle Opfer einer Cybermobbinggruppe gewesen sind." data-en="GitHub website of nwogermany - Two young men and one woman who were all victims of a cyberbullying group.">GitHub Webseite von nwogermany - Zwei junge Männer und eine Frau, die alle Opfer einer Cybermobbinggruppe gewesen sind.</p>
+            </div>
+
+            <div class="link-item">
+                <a href="https://github.com/nwogermany" target="_blank">github.com/nwogermany</a>
+                <p data-de="GitHub Benutzerseite von nwogermany." data-en="GitHub user page of nwogermany.">GitHub Benutzerseite von nwogermany.</p>
+            </div>
+
+            <div class="link-item">
+                <a href="https://www.youtube.com/watch?v=fIUvblpsPSk" target="_blank">WDR Doku: NWO Kartell</a>
+                <p data-de="Video von WDR Doku über das NWO Kartell. Kanal: https://www.youtube.com/@WDRDoku" data-en="Video by WDR Doku about the NWO cartel. Channel: https://www.youtube.com/@WDRDoku">Video von WDR Doku über das NWO Kartell. Kanal: https://www.youtube.com/@WDRDoku</p>
+            </div>
+
+            <div class="link-item">
+                <a href="https://www.youtube.com/watch?v=ATUUwbXc4k4" target="_blank">ARD: NWO Cybermobbinggruppe</a>
+                <p data-de="Video von ARD über die NWO Cybermobbinggruppe auf YouTube." data-en="Video by ARD about the NWO cyberbullying group on YouTube.">Video von ARD über die NWO Cybermobbinggruppe auf YouTube.</p>
             </div>
         </section>
     </div>
@@ -852,17 +922,19 @@
             const langText = document.getElementById('langText');
             
             if (currentLanguage === 'de') {
-                flagContainer.innerHTML = `
-                    <img src="data:image/svg+xml;base64,${btoa('<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="15" fill="#000000"/><rect width="20" height="5" fill="#DD0000"/><rect width="20" height="10" fill="#FFCE00"/></svg>')}" class="flag" alt="Germany">
-                    <img src="data:image/svg+xml;base64,${btoa('<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="15" fill="#ED2939"/><rect width="20" height="5" fill="white"/><rect width="20" height="10" fill="#002395"/></svg>')}" class="flag" alt="Austria">
-                `;
-                langText.textContent = 'DEUTSCHE VERSION';
-            } else {
+                // Aktuell Deutsch -> Zeige ENGLISH VERSION mit UK/US Flaggen
                 flagContainer.innerHTML = `
                     <img src="data:image/svg+xml;base64,${btoa('<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="15" fill="#012169"/><path d="M0 0l20 15M0 15L20 0" stroke="white" stroke-width="2"/><path d="M0 0l20 15M0 15L20 0" stroke="#C8102E" stroke-width="1.2"/></svg>')}" class="flag" alt="UK">
                     <img src="data:image/svg+xml;base64,${btoa('<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="15" fill="#B22234"/><path d="M0 0h20v15H0z" fill="white"/><path d="M0 1.7h20m0 3.3H0m0 3.3h20m0 3.3H0" stroke="#B22234" stroke-width="1.7"/><rect width="8" height="8.1" fill="#3C3B6E"/></svg>')}" class="flag" alt="US">
                 `;
                 langText.textContent = 'ENGLISH VERSION';
+            } else {
+                // Aktuell Englisch -> Zeige DEUTSCHE VERSION mit DE/AT Flaggen
+                flagContainer.innerHTML = `
+                    <img src="data:image/svg+xml;base64,${btoa('<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="15" fill="#000000"/><rect width="20" height="5" fill="#DD0000"/><rect width="20" height="10" fill="#FFCE00"/></svg>')}" class="flag" alt="Germany">
+                    <img src="data:image/svg+xml;base64,${btoa('<svg width="20" height="15" viewBox="0 0 20 15" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="15" fill="#ED2939"/><rect width="20" height="5" fill="white"/><rect width="20" height="10" fill="#002395"/></svg>')}" class="flag" alt="Austria">
+                `;
+                langText.textContent = 'DEUTSCHE VERSION';
             }
         }
 
